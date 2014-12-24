@@ -1,0 +1,148 @@
+<html>
+<head>
+<title>Streaming Users per 28c3 Talk</title>
+<meta charset="UTF-8">
+<meta name="description" content="Publications of Sebastian Schinzel">
+<meta name="keywords" content="ABAP,Security,Sebastian Schinzel">
+<link rel=stylesheet type="text/css" href="/sub.css">
+
+</head>
+<body>
+<h2>Streaming Users per 28c3 Talk</h2>
+<h3>Why?</h3>
+<p>At 28c3 one could monitor several metrics of the conference network such as
+used bandwidth and also the number of streaming users per room per time (
+it used to be at dashboard.congress.ccc.de, which is now down). There you
+could also download a json file containing this data. I wanted to know how
+many people watch the live stream of my talk, but as I had lots of time on
+my way home and I didn't do any dataset hacking in months, I created this
+information for all talks.</p>
+
+<h3>The Dataset</h3>
+<p>The dashboard json file contained only information about the amount of
+streaming users per room and time, but there was no direct connection to the
+talk. Fortunately, one can download an XML file containing information about
+the talk (<a href="http://events.ccc.de/congress/2011/Fahrplan/schedule.en.xml" target="_blank">here</a>).
+I hacked a Python script that merged the datasets using the time of the talk
+and the room of the talk (it's a dirty, ugly hack, but I am happy to send
+the script to you if you send me a mail).</p>
+
+<p>Unfortunately, the streaming dataset does not contain information on some
+talks of the first day, so I left them out. Also, the time stamps in the
+streaming datasets where one hour in the future (I corrected this).
+The dataset also finishes on the last day around 13:30, because this was
+the time where I left the congress. Unfortunately, the dashboard web page
+is currently down, so I cannot download the full dataset. There are also
+some strange patterns, e.g. whereas my talk (<a href='javascript:;' onclick="window.open('/28c3/4640.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">4640 - Time is on My Side</a>) started
+with a lot of users (~1500), then plunged all of a sudden in the middle of
+the talk (500). This also happened to the other two talks that took place
+in parallel to mine (<a href='javascript:;' onclick="window.open('/28c3/4800.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">4800 - How governments have tried to block Tor</a>), and
+(<a href='javascript:;' onclick="window.open('/28c3/4758.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">4758 - Ein Mittelsmannangriff auf ein digitales Signierger&auml;t</a>). So either
+the two other speakers and I suddenly sucked badly in the middle of our
+talk, or some technical glitch caused this effect.</p>
+
+<p>Anyway, you find the merged dataset <a href="dataset.csv" target="_blank">here</a>
+, the json file I used <a href="history.json" target="_blank">here</a>,
+and the schedule XML file  <a href="schedule.en.xml" target="_blank">here</a></p>
+
+<h3>What Do We Learn from this List?</h3>
+<p>This list does not tell much about the quality of the talks. It is more an
+indicator of how many people dialed in because they were interested after 
+reading the description of the talk. Prominence of the speaker is probably
+also a big influence.</p>
+<p>So when a talk had lots of visitors, then either it was about a very
+interesting topic or it was given by a prominent speaker.</p>
+<p>As expected, there is also a strong preference for the people to watch those talks
+in room 1.</p>
+
+<h3>Show the List Already!</h3>
+<p>Here you go. Click at the number of streams to get a detailed graph of
+the progress.</p>
+
+<table border="1">
+	<tr><td>Rank</td><td>Max. # of live streams<br>Click for details</td><td>Room</td><td>Event</td><td>Description of talk</td></tr>
+		<tr><td>1</td><td><a href='javascript:;' onclick="window.open('/28c3/4866.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">3741</a></td><td>1</td><td>4866 - Fnord-Jahresrueckblick</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4866.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>2</td><td><a href='javascript:;' onclick="window.open('/28c3/4800.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">3456</a></td><td>1</td><td>4800 - How governments have tried to block Tor</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4800.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>3</td><td><a href='javascript:;' onclick="window.open('/28c3/4930.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">2790</a></td><td>1</td><td>4930 - Black Ops of TCP/IP 2011</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4930.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>4</td><td><a href='javascript:;' onclick="window.open('/28c3/4675.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">2494</a></td><td>1</td><td>4675 - 'Die Koalition setzt sich aber aktiv und ernsthaft dafuer ein'</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4675.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>5</td><td><a href='javascript:;' onclick="window.open('/28c3/4832.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">2372</a></td><td>1</td><td>4832 - "Neue Leichtigkeit"</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4832.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>6</td><td><a href='javascript:;' onclick="window.open('/28c3/4676.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">2353</a></td><td>1</td><td>4676 - Apple vs. Google Client Platforms</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4676.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>7</td><td><a href='javascript:;' onclick="window.open('/28c3/4908.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">2347</a></td><td>1</td><td>4908 - Jahresrueckblick</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4908.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>8</td><td><a href='javascript:;' onclick="window.open('/28c3/4775.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">2170</a></td><td>1</td><td>4775 - Hacker Jeopardy</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4775.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>9</td><td><a href='javascript:;' onclick="window.open('/28c3/4736.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">2169</a></td><td>1</td><td>4736 - Defending mobile phones</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4736.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>10</td><td><a href='javascript:;' onclick="window.open('/28c3/4680.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">1805</a></td><td>1</td><td>4680 - Effective Denial of Service attacks against web application platforms</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4680.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>11</td><td><a href='javascript:;' onclick="window.open('/28c3/4751.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">1786</a></td><td>1</td><td>4751 - The Hack will not be televised?</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4751.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>12</td><td><a href='javascript:;' onclick="window.open('/28c3/4804.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">1767</a></td><td>1</td><td>4804 - Politik hacken</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4804.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>13</td><td><a href='javascript:;' onclick="window.open('/28c3/4848.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">1757</a></td><td>1</td><td>4848 - The coming war on general computation</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4848.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>14</td><td><a href='javascript:;' onclick="window.open('/28c3/4738.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">1668</a></td><td>1</td><td>4738 - Echtes Netz </td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4738.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>15</td><td><a href='javascript:;' onclick="window.open('/28c3/4928.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">1600</a></td><td>1</td><td>4928 - KinectFusion</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4928.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>16</td><td><a href='javascript:;' onclick="window.open('/28c3/4761.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">1588</a></td><td>1</td><td>4761 - New Ways I'm Going to Hack Your Web App</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4761.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>17</td><td><a href='javascript:;' onclick="window.open('/28c3/4640.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">1529</a></td><td>2</td><td>4640 - Time is on my Side</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4640.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>18</td><td><a href='javascript:;' onclick="window.open('/28c3/4816.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">1488</a></td><td>1</td><td>4816 - 7 years, 400+ podcasts, and a whole lot of Frequent Flyer Miles</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4816.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>19</td><td><a href='javascript:;' onclick="window.open('/28c3/4758.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">1417</a></td><td>3</td><td>4758 - Ein Mittelsmannangriff auf ein digitales Signiergeraet</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4758.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>20</td><td><a href='javascript:;' onclick="window.open('/28c3/4763.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">1332</a></td><td>1</td><td>4763 - The Science of Insecurity</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4763.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>21</td><td><a href='javascript:;' onclick="window.open('/28c3/4746.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">1298</a></td><td>1</td><td>4746 - Bitcoin - An Analysis</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4746.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>22</td><td><a href='javascript:;' onclick="window.open('/28c3/4871.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">1235</a></td><td>1</td><td>4871 - Hacking MFPs</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4871.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>23</td><td><a href='javascript:;' onclick="window.open('/28c3/4663.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">1232</a></td><td>1</td><td>4663 - Cellular protocol stacks for Internet</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4663.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>24</td><td><a href='javascript:;' onclick="window.open('/28c3/4869.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">1212</a></td><td>2</td><td>4869 - TRESOR: Festplatten sicher verschluesseln</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4869.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>25</td><td><a href='javascript:;' onclick="window.open('/28c3/4828.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">1032</a></td><td>2</td><td>4828 - Antiforensik</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4828.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>26</td><td><a href='javascript:;' onclick="window.open('/28c3/4587.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">990</a></td><td>2</td><td>4587 - bup: Git for backups</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4587.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>27</td><td><a href='javascript:;' onclick="window.open('/28c3/4699.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">975</a></td><td>2</td><td>4699 - Building a Distributed Satellite Ground Station Network - A Call To Arms</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4699.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>28</td><td><a href='javascript:;' onclick="window.open('/28c3/4740.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">880</a></td><td>2</td><td>4740 - Frag den Staat</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4740.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>29</td><td><a href='javascript:;' onclick="window.open('/28c3/4905.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">879</a></td><td>3</td><td>4905 - Lightning Talks Day 2</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4905.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>30</td><td><a href='javascript:;' onclick="window.open('/28c3/4706.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">872</a></td><td>2</td><td>4706 - Power gadgets with your own electricity</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4706.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>31</td><td><a href='javascript:;' onclick="window.open('/28c3/4759.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">872</a></td><td>2</td><td>4759 - Open source music: Tracking 2.0</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4759.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>32</td><td><a href='javascript:;' onclick="window.open('/28c3/4686.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">826</a></td><td>1</td><td>4686 - Implementation of MITM Attack on HDCP-Secured Links</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4686.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>33</td><td><a href='javascript:;' onclick="window.open('/28c3/4656.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">824</a></td><td>2</td><td>4656 - Ooops I hacked my PBX</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4656.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>34</td><td><a href='javascript:;' onclick="window.open('/28c3/4788.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">804</a></td><td>3</td><td>4788 - Datenvieh oder Daten-Fee</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4788.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>35</td><td><a href='javascript:;' onclick="window.open('/28c3/4935.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">784</a></td><td>2</td><td>4935 - EU-Datenschutz und das Internet der Dinge (english translation)</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4935.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>36</td><td><a href='javascript:;' onclick="window.open('/28c3/4847.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">781</a></td><td>2</td><td>4847 - Reverse Engineering USB Devices</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4847.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>37</td><td><a href='javascript:;' onclick="window.open('/28c3/4669.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">779</a></td><td>2</td><td>4669 - Bionic Ears</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4669.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>38</td><td><a href='javascript:;' onclick="window.open('/28c3/4814.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">767</a></td><td>3</td><td>4814 - Behind the scenes of a C64 demo</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4814.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>39</td><td><a href='javascript:;' onclick="window.open('/28c3/4813.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">754</a></td><td>3</td><td>4813 - Macro dragnets: Why trawl the river when you can do the whole ocean</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4813.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>40</td><td><a href='javascript:;' onclick="window.open('/28c3/4756.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">746</a></td><td>2</td><td>4756 - Quantified-Self and OpenBCI Neurofeedback Mind-Hacking</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4756.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>41</td><td><a href='javascript:;' onclick="window.open('/28c3/4811.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">732</a></td><td>2</td><td>4811 - Rootkits in your Web application</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4811.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>42</td><td><a href='javascript:;' onclick="window.open('/28c3/4755.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">715</a></td><td>3</td><td>4755 - Counterlobbying EU institutions</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4755.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>43</td><td><a href='javascript:;' onclick="window.open('/28c3/4770.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">711</a></td><td>2</td><td>4770 - Don't scan, just ask</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4770.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>44</td><td><a href='javascript:;' onclick="window.open('/28c3/4906.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">681</a></td><td>3</td><td>4906 - Lightning Talks Day 3</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4906.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>45</td><td><a href='javascript:;' onclick="window.open('/28c3/4660.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">668</a></td><td>3</td><td>4660 - Post Memory Corruption Memory Analysis</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4660.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>46</td><td><a href='javascript:;' onclick="window.open('/28c3/4780.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">660</a></td><td>2</td><td>4780 - Print Me If You Dare</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4780.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>47</td><td><a href='javascript:;' onclick="window.open('/28c3/4735.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">643</a></td><td>3</td><td>4735 - Reverse-engineering a Qualcomm baseband</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4735.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>48</td><td><a href='javascript:;' onclick="window.open('/28c3/4817.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">566</a></td><td>3</td><td>4817 - String Oriented Programming</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4817.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>49</td><td><a href='javascript:;' onclick="window.open('/28c3/4826.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">563</a></td><td>2</td><td>4826 - A Brief History of Plutocracy</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4826.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>50</td><td><a href='javascript:;' onclick="window.open('/28c3/4767.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">556</a></td><td>2</td><td>4767 - Security Log Visualization with a Correlation Engine</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4767.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>51</td><td><a href='javascript:;' onclick="window.open('/28c3/4741.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">544</a></td><td>2</td><td>4741 - Resilience Towards Leaking or Why Julian Assange Might Be Wrong After All</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4741.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>52</td><td><a href='javascript:;' onclick="window.open('/28c3/4916.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">537</a></td><td>3</td><td>4916 - BuggedPlanet</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4916.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>53</td><td><a href='javascript:;' onclick="window.open('/28c3/4798.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">506</a></td><td>3</td><td>4798 - Sovereign Keys</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4798.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>54</td><td><a href='javascript:;' onclick="window.open('/28c3/4907.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">498</a></td><td>3</td><td>4907 - Lightning Talks Day 4</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4907.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>55</td><td><a href='javascript:;' onclick="window.open('/28c3/4748.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">486</a></td><td>2</td><td>4748 - The best of The oXcars</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4748.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>56</td><td><a href='javascript:;' onclick="window.open('/28c3/4688.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">478</a></td><td>3</td><td>4688 - Introducing Osmo-GMR</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4688.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>57</td><td><a href='javascript:;' onclick="window.open('/28c3/4712.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">466</a></td><td>3</td><td>4712 - Privacy Invasion or Innovative Science?</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4712.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>58</td><td><a href='javascript:;' onclick="window.open('/28c3/4652.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">461</a></td><td>2</td><td>4652 - Data Mining the Israeli Census</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4652.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>59</td><td><a href='javascript:;' onclick="window.open('/28c3/4730.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">458</a></td><td>3</td><td>4730 - Crowdsourcing Genome Wide Association Studies</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4730.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>60</td><td><a href='javascript:;' onclick="window.open('/28c3/4668.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">453</a></td><td>3</td><td>4668 - Electronic money: The road to Bitcoin and a glimpse forward</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4668.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>61</td><td><a href='javascript:;' onclick="window.open('/28c3/4710.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">451</a></td><td>2</td><td>4710 - The future of cryptology: which 3 letters algorithm(s) could be our Titanic?</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4710.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>62</td><td><a href='javascript:;' onclick="window.open('/28c3/4781.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">437</a></td><td>3</td><td>4781 - Deceiving Authorship Detection</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4781.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>63</td><td><a href='javascript:;' onclick="window.open('/28c3/4742.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">428</a></td><td>1</td><td>4742 - From Press Freedom to the Freedom of information</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4742.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>64</td><td><a href='javascript:;' onclick="window.open('/28c3/4802.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">417</a></td><td>2</td><td>4802 - Towards a Single Secure European Cyberspace?</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4802.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>65</td><td><a href='javascript:;' onclick="window.open('/28c3/4707.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">413</a></td><td>3</td><td>4707 - Your Disaster/Crisis/Revolution just got Pwned</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4707.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>66</td><td><a href='javascript:;' onclick="window.open('/28c3/4581.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">367</a></td><td>3</td><td>4581 - Taking control over the Tor network</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4581.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>67</td><td><a href='javascript:;' onclick="window.open('/28c3/4713.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">362</a></td><td>2</td><td>4713 - What is in a name?</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4713.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>68</td><td><a href='javascript:;' onclick="window.open('/28c3/4768.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">300</a></td><td>2</td><td>4768 - Eating in the Anthropocene</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4768.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>69</td><td><a href='javascript:;' onclick="window.open('/28c3/4934.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">273</a></td><td>3</td><td>4934 - Hacker Jeopardy Translation</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4934.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>70</td><td><a href='javascript:;' onclick="window.open('/28c3/4932.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">258</a></td><td>2</td><td>4932 - CCC Camp 2011 Video Impressions</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4932.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>71</td><td><a href='javascript:;' onclick="window.open('/28c3/4821.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">254</a></td><td>2</td><td>4821 - Not your Grandfathers moon landing</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4821.en.html" target="_blank">Fahrplan</tr>
+		<tr><td>72</td><td><a href='javascript:;' onclick="window.open('/28c3/4722.html','berichte','toolbar=no, scrollbars=yes, width=1000, height=750');">196</a></td><td>2</td><td>4722 - NPC - Nerds' Pissing Contest</td><td><a href="http://events.ccc.de/congress/2011/Fahrplan/events/4722.en.html" target="_blank">Fahrplan</tr>
+</table>
+<h3>Contact</h3>
+Find me at
+<ul>
+<li><a href="https://www.fh-muenster.de/fb2/personen/professoren/schinzel" target="_blank">Münster University of Applied Sciences</a></li>
+<li><a href="https://www.xing.com/profile/Sebastian_Schinzel" target="_blank">Xing</a></li>
+<li><a href="http://www.linkedin.com/in/seecurity" target="_blank">Linkedin</a></li>
+<li><a href="http://twitter.com/seecurity" target="_blank">Twitter</a></li>
+<li><a href="http://www.amazon.de/-/e/B004OWXVWY" target="_blank">Amazon Author Profile</a></li>
+<li><a href="http://www.researchgate.net/profile/Sebastian_Schinzel/" target="_blank">ResearchGate</a></li>
+</ul>
+</body>
+</html>

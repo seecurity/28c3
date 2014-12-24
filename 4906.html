@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Time');
+        data.addColumn('number', '# of live streams in this talk');
+        data.addColumn('number', 'Maximum # of live streams');
+        data.addColumn('number', 'Minimum # of live streams');
+        data.addRows([
+['2011-12-29 12:48:09',288,3741,0]
+,['2011-12-29 12:53:10',293,3741,0]
+,['2011-12-29 12:58:15',321,3741,0]
+,['2011-12-29 13:03:20',309,3741,0]
+,['2011-12-29 13:08:25',401,3741,0]
+,['2011-12-29 13:13:30',336,3741,0]
+,['2011-12-29 13:18:35',343,3741,0]
+,['2011-12-29 13:23:40',351,3741,0]
+,['2011-12-29 13:28:45',353,3741,0]
+,['2011-12-29 13:33:50',554,3741,0]
+,['2011-12-29 13:38:55',645,3741,0]
+,['2011-12-29 13:44:00',681,3741,0]
+,['2011-12-29 13:49:05',553,3741,0]
+,['2011-12-29 13:54:10',484,3741,0]
+,['2011-12-29 13:59:15',471,3741,0]
+,['2011-12-29 14:04:20',426,3741,0]
+,['2011-12-29 14:09:25',403,3741,0]
+,['2011-12-29 14:14:30',414,3741,0]
+,['2011-12-29 14:19:35',418,3741,0]
+,['2011-12-29 14:25:05',425,3741,0]
+,['2011-12-29 14:30:10',455,3741,0]
+,['2011-12-29 14:35:15',419,3741,0]
+,['2011-12-29 14:40:20',419,3741,0]
+,['2011-12-29 14:45:25',429,3741,0]
+,['2011-12-29 14:50:30',452,3741,0]
+,['2011-12-29 14:55:35',452,3741,0]
+]);
+
+        var options = {
+          width: 800, height: 600,
+          title: 'People attending the live stream of this talk'
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="chart_div"></div>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Time');
+        data.addColumn('number', '# of live streams in this talk');
+        data.addColumn('number', 'Maximum # of live streams');
+        data.addColumn('number', 'Minimum # of live streams');
+        data.addRows([
+['2011-12-28 00:16:21',273,3741,0]
+,['2011-12-28 00:18:20',248,3741,0]
+,['2011-12-28 00:20:01',241,3741,0]
+,['2011-12-28 00:25:02',242,3741,0]
+,['2011-12-28 00:28:58',225,3741,0]
+,['2011-12-28 00:34:01',209,3741,0]
+,['2011-12-28 00:39:06',205,3741,0]
+,['2011-12-28 00:44:11',196,3741,0]
+,['2011-12-28 00:47:36',189,3741,0]
+,['2011-12-28 00:48:06',190,3741,0]
+,['2011-12-28 00:49:53',182,3741,0]
+,['2011-12-28 00:54:57',186,3741,0]
+,['2011-12-28 01:00:02',183,3741,0]
+,['2011-12-28 01:05:07',194,3741,0]
+,['2011-12-28 01:06:22',197,3741,0]
+,['2011-12-28 01:06:24',197,3741,0]
+,['2011-12-28 01:06:26',197,3741,0]
+,['2011-12-28 01:06:30',197,3741,0]
+,['2011-12-28 01:07:04',193,3741,0]
+,['2011-12-28 01:12:07',181,3741,0]
+,['2011-12-28 01:17:12',180,3741,0]
+,['2011-12-28 01:22:17',177,3741,0]
+,['2011-12-28 01:23:10',174,3741,0]
+,['2011-12-28 01:23:59',172,3741,0]
+,['2011-12-28 01:29:04',164,3741,0]
+,['2011-12-28 01:34:09',157,3741,0]
+,['2011-12-28 01:39:14',152,3741,0]
+,['2011-12-28 01:44:19',148,3741,0]
+,['2011-12-28 01:49:24',148,3741,0]
+,['2011-12-28 01:54:29',144,3741,0]
+,['2011-12-28 01:59:34',144,3741,0]
+]);
+
+        var options = {
+          width: 800, height: 600,
+          title: 'People attending the live stream of this talk'
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="chart_div"></div>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Time');
+        data.addColumn('number', '# of live streams in this talk');
+        data.addColumn('number', 'Maximum # of live streams');
+        data.addColumn('number', 'Minimum # of live streams');
+        data.addRows([
+['2011-12-29 20:31:23',386,3741,0]
+,['2011-12-29 20:36:28',422,3741,0]
+,['2011-12-29 20:41:33',425,3741,0]
+,['2011-12-29 20:46:38',436,3741,0]
+,['2011-12-29 20:51:43',437,3741,0]
+,['2011-12-29 20:56:48',435,3741,0]
+,['2011-12-29 21:01:53',437,3741,0]
+,['2011-12-29 21:06:58',448,3741,0]
+,['2011-12-29 21:12:03',445,3741,0]
+,['2011-12-29 21:17:08',476,3741,0]
+,['2011-12-29 21:22:13',478,3741,0]
+,['2011-12-29 21:27:18',461,3741,0]
+]);
+
+        var options = {
+          width: 800, height: 600,
+          title: 'People attending the live stream of this talk'
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="chart_div"></div>
+  </body>
+</html>
